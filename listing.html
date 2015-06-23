@@ -1,0 +1,85 @@
+<!--
+	Student Info here
+	Manisha(4956958)
+
+	Function: Interface for buying items
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>seller page</title>
+	<script type="text/javascript" src="listing.js"></script>
+
+
+
+</head>
+
+
+<body>
+<div id="menu" align="middle" >
+    <h1><font color="f11a0a"> ShopOnline</font></h1>
+    <br>
+	<a href="login.html">Home</a> &sdot; <a href="listing.html">Listing</a> &sdot; <a href="bid.php">Bidding</a>&sdot; <a href="maintenance.php">Maintenance</a>
+
+</div>
+<br>
+
+<hr>
+<br>
+<br><br>
+<h2><i>To create a listing,enter listing details below</i></h2>
+<form action="listing.php" method="post">
+
+<fieldset style="float: centre; width: 280px; background-color:#E6E6FA;">
+<legend>Seller Details:</legend>
+<h5>Required fields*</h5>
+<p> Item Name*  <input name="Itemname" type="text"/>&nbsp;</p>
+<p> Category*  <select name="Category">
+	<option value="Camera" selected="true">Camera</option>
+	<option value="Phone">Phone</option>
+	<option value="Other">Other</option>
+</select></p>
+<P>Description*&nbsp;&nbsp;<textarea name="Description" rows="2" cols="50"></textarea></P>
+<p>Start Price* <input name="StartPrice" type="text"  value="00"/>&nbsp;<input name="startbox2" type="text" value="00"/></p>
+<p>Reserve Price* <input name="ReservePrice" type="text"/>&nbsp;<input name="reservebox2" type="text" value="00"/></p>
+<p>Buy It Now Price* <input name="BuyItNowPrice" type="text"/>&nbsp;<input name="buybox2" type="text" value="00"/></p>
+  
+<table border="0" cellspacing="0">
+<tr><td  align=left >   
+<p> Duration* Day<select name="day" selected="true" ><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='04'>04</option><option value='05'>05</option><option value='06'>06</option><option value='07'>07</option><option value='08'>08</option>
+<option value='09'>09</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option><option value='13'>13
+</option><option value='14'>14</option><option value='15'>15</option><option value='16'>16</option><option value='17'>17</option>
+<option value='18'>18</option><option value='19'>19</option><option value='20'>20</option><option value='21'>21</option>
+<option value='22'>22</option><option value='23'>23</option><option value='24'>24</option><option value='25'>25</option>
+<option value='26'>26</option><option value='27'>27</option><option value='28'>28</option><option value='29'>29</option>
+<option value='30'>30</option><option value='31'>31</option>
+</select>
+Hour<select name="hour" selected="true" >
+<option value='01'>01</option>
+<option value='02'>02</option>
+<option value='03'>03</option>
+<option value='04'>04</option>
+<option value='05'>05</option>
+<option value='06'>06</option>
+<option value='07'>07</option>
+<option value='08'>08</option>
+<option value='09'>09</option>
+<option value='10'>10</option>
+<option value='11'>11</option>
+<option value='12'>12</option>
+</select>
+Minutes<select name="minutes" selected="true" >
+<option value='00'>00</option>
+<option value='15'>15</option>
+<option value='30'>30</option>
+<option value='45'>45</option>
+</td></tr>
+</table>
+&nbsp;<input type="submit" value="Listing">
+&nbsp;<input type="submit" value="Reset" onclick="clear_form();">
+</fieldset>
+</form>
+</body>
+</html>

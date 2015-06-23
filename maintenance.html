@@ -1,0 +1,103 @@
+<!--
+	Maintance page-interface for the Broker.
+-->
+<html>
+<body>
+<br>
+
+<hr>
+<br>
+<br>
+<p><i>Current auction items are listed below. to place a bid for an item, use the place Bid button.</i></p>
+<p><i><b>NOTE:</b>Item remaining time and bid prices are updated every 5 seconds.</i></p>
+  
+
+<form name="login" method="post" action="" id="login">
+            <fieldset id="listingfieldset" style="width: 40%;margin-left: 20%;">
+
+<?php
+
+                //if(file_exists('data/auction.xml'))
+              if(file_exists('auction.xml'))
+
+                {
+                //$doc =DOMDocument::load("data/auction.xml");
+                $doc =DOMDocument::load("auction.xml");
+
+                $auctionlist=$doc->getElementsByTagName("auction");
+                $auctiondata=array();
+                foreach($auctionlist as $node)
+                {
+                $itemnumber = $node->getElementsByTagName("Itemnumber")->item(0)->nodeValue;
+                $itemname=$node->getElementsByTagName("Itemname")->item(0)->nodeValue;
+                $category=$node->getElementsByTagName("Category")->item(0)->nodeValue;
+                $description=$node->getElementsByTagName("Description")->item(0)->nodeValue;
+                $startprice=$node->getElementsByTagName("StartPrice")->item(0)->nodeValue;
+                $reserveprice=$node->getElementsByTagName("ReservePrice")->item(0)->nodeValue;
+                $buyprice=$node->getElementsByTagName("BuyItNowPrice")->item(0)->nodeValue;
+                $status=$node->getElementsByTagName("Status")->item(0)->nodeValue;
+                //$customerid=$node->getElementsByTagName("id")->item(0)->nodeValue;
+                $date=$node->getElementsByTagName("date")->item(0)->nodeValue;
+                $time=$node->getElementsByTagName("day")->item(0)->nodeValue;
+                $hours=$node->getElementsByTagName("hour")->item(0)->nodeValue;
+                $minutes=$node->getElementsByTagName("minutes")->item(0)->nodeValue;
+				 
+				//date_default_timezone_set('Australia/Melbourne');
+
+				 $end_date = date("Y/m/d", strtotime($date . " + $time days")); 
+
+				
+                      $datetime1 = new DateTime($end_date );
+
+      $datetime2 = new DateTime();
+      $interval = $datetime1->diff($datetime2);
+      echo $interval->format('%a days, %h hours, %i minutes, %S seconds');
+             
+			    
+				?>
+                <table style="border: 1; border-bottom: 1px solid red; width: 100%"  id="biddinglist">
+
+
+                    <tr>
+                        <td></td>
+                        <td style="color: red"><label for="Itemnumber">Item No:</label></td>
+                        <td><?php echo $itemnumber;?></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td><label for="Itemname">Item Name:</label></td>
+                        <td><?php echo $itemname;?></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><label for="Category"> Category:</label></td>
+                        <td><?php echo $category;?></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><label for="Description">Description:</label></td>
+                        <td><?php echo substr($description,0,30)."...";?></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><label for="BuyItNowPrice">Buy It Now Price:</label></td>
+                        <td><?php echo "$".$buyprice;?></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><label for="StartPrice">Bid Price</label></td>
+                        <td><?php echo "$". $startprice;?></td>
+                    </tr>
+                   
+                   
+                   
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><form method="post">
+                        &nbsp;    <input type="submit" name="submit" value="Buy It Now"></form></td>
+                    </tr>
+                </table>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<xml>
+  <auction>
+    <Itemnumber>2</Itemnumber>
+    <Itemname>samsung galaxy</Itemname>
+    <Category>Phone</Category>
+    <Description>1 year old</Description>
+    <StartPrice>150</StartPrice>
+    <ReservePrice>160</ReservePrice>
+    <BuyItNowPrice>170</BuyItNowPrice>
+    <Status>in_progress</Status>
+    <date>2014/05/22</date>
+    <time>14:01:45</time>
+    <day>06</day>
+    <hour>03</hour>
+    <minutes>15</minutes>
+  </auction>
+</xml>
